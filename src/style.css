@@ -1,0 +1,7 @@
+.hello {
+  color: red;
+  background: url('./dog.jpg') no-repeat;
+  background-size: cover;
+  height: 200px;
+  width: 200px;
+}
