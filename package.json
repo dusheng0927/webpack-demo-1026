@@ -5,9 +5,8 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch",
-    "start": "webpack serve --open",
+    "start": "webpack serve",
     "build": "webpack",
     "server": "node server.js"
   },
@@ -15,18 +14,21 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "babel-loader": "^8.2.3",
+    "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.4.0",
-    "csv-loader": "^3.0.3",
     "express": "^4.17.1",
     "html-webpack-plugin": "^5.5.0",
     "style-loader": "^3.3.1",
     "webpack": "^5.60.0",
     "webpack-cli": "^4.9.1",
     "webpack-dev-middleware": "^5.2.1",
-    "webpack-dev-server": "^4.3.1",
-    "xml-loader": "^1.2.1"
+    "webpack-dev-server": "^4.3.1"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
     "lodash": "^4.17.21"
   }
 }

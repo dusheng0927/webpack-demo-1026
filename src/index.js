@@ -1,30 +1,22 @@
 // 静态导入
-import _ from "lodash"
+// import _ from "lodash"
+import "@babel/polyfill"
+
+import number from './number.js'
+import counter from './counter.js'
 import './style.css'
-// import Icon from './dog.jpg'
-// import Data from './data.xml'
-import printMe from "./print"
 
-function component () {
-  const element = document.createElement('div')
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ')
-  element.classList.add('hello')
+number()
+counter()
 
-  // const myIcon =  new Image()
-  // myIcon.src = Icon
-  // element.appendChild(myIcon)
+const promiseArr = [ // 安裝polyfill， 將promise、map等语法兼容低版本浏览器
+  new Promise(() => {}),
+  new Promise(() => {}),
+]
+promiseArr.map(item => {
+  console.log(item)
+})
 
-  // console.log(Data)
-
-  const btn = document.createElement('button')
-  btn.innerHTML = 'Click me and check the console!'
-  btn.onclick = printMe
-
-  element.appendChild(btn)
-
-  return element
-}
-document.body.appendChild(component());
 
 // 动态导入
 // function getComponent() {
@@ -38,7 +30,7 @@ document.body.appendChild(component());
 //   }).catch((error) => 'An error occurred while loading the component')
 // }
 
-// // 使用async await
+// // 动态导入 使用async await
 // async function getComponent () {
 //   const { default: _ } = await import('lodash')
   
