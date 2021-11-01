@@ -81,7 +81,13 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i, // 加载图片
-        type: 'asset/resource'
+        // type: 'asset/resource'
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]' // 打包后的图片名称和之前的一致
+          }
+        }
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i, // 加载字体
@@ -94,7 +100,12 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: [
-              ['@babel/preset-env',  { 'useBuiltIns': 'usage'}], // 使用polufill，兼容低版本浏览器（Array.map, Promise等）
+              ['@babel/preset-env', 
+                {
+                 'useBuiltIns': 'usage',
+                 corejs: 3
+                }
+              ], // 使用polufill，兼容低版本浏览器（Array.map, Promise等）
             ]
           }
         }

@@ -1,20 +1,25 @@
 // 静态导入
 // import _ from "lodash"
-import "@babel/polyfill"
 
-import number from './number.js'
-import counter from './counter.js'
+import number from './example/number.js'
+import counter from './example/counter.js'
+import loadImage from './example/loadImage.js'
 import './style.css'
+
 
 number()
 counter()
+loadImage()
 
-const promiseArr = [ // 安裝polyfill， 將promise、map等语法兼容低版本浏览器
-  new Promise(() => {}),
-  new Promise(() => {}),
-]
-promiseArr.map(item => {
-  console.log(item)
+const add = (a, b) => {
+  console.log(a+b)
+}
+add(2,3)
+
+// 安裝polyfill， 將promise、map等语法兼容低版本浏览器
+new Promise((resolve, reject) => {
+  console.log('test')
+  resolve('success')
 })
 
 
