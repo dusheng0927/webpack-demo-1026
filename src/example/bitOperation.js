@@ -8,7 +8,7 @@ console.log(num1 >> 2) // 1
 
 // 按位非 运算 -（x+1）
 let num2 = -3 // 1表示负数，原码：10011， 反码：11100， 补码：11101 （反码+1）
-console.log(~num2) // 取反，结果为 2
+console.log(~num2) // 结果为 2
 
 
 let num3 = 5 // 原码00101
