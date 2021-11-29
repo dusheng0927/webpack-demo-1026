@@ -3,7 +3,7 @@ let initPath = '/'
 
 class VueRouter {
   constructor(){
-    // 将current定义为响应式数据，变更时会立即出发router-view组件重新渲染
+    // 将current定义为响应式数据，变更时会立即触发router-view组件重新渲染
     Vue.util.defineReactive(this, 'current', initPath)
     this.mode = 'hash'
     this.init()

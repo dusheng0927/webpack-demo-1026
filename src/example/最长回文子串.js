@@ -1,33 +1,3 @@
-// 求两个字符串的最长公共子序列（动态规划）
-// dp[m][n] 表示字符串 s1 的长度为 m 且字符串 s2 的长度为 n 时的最长公共子序列的长度
-
-// 当 s1[m] === s2[n] 时， dp[m][n] = 1 + dp[m-1][n-1]
-// 当 s1[m] !== s2[n] 时， dp[m][n] = Math.max(dp[m-1][n], dp[m][n-1])
-
-function getLongCommonSet (s1, s2) {
-  let len1 = s1.length
-  let len2 = s2.length
-  const dp = []
-
-  for (let i = 0; i <= len1; i++) {
-    dp[i] = []
-    dp[i][0] = 0
-  }
-  dp[0] = Array(len2 + 1).fill(0)
-
-  for (let i = 1; i <= len1; i++) {
-    for (let j = 1; j <= len2; j++){
-      if (s1[i] === s2[j]) {
-        dp[i][j] = 1 + dp[i-1][j-1]
-      } else {
-        dp[i][j] = Math.max(dp[i-1][j], dp[i][j-1])
-      }
-    }
-  }
-  return dp[len1][len2]
-}
-
-
 // 找出字符串中的最长回文子串
 // 定义状态： dp[i][j] 表示子串s[i...j]是否为回文子串, bool值
 // 转移方程：dp[i][j] = s[i] === s[j] && dp[i+1][j-1]
