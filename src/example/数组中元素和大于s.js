@@ -5,6 +5,16 @@
 
 // s = 7, nums = [2,3,1,2,4,3] 输出：2 
 
+
+
+
+
+
+
+
+
+
+
 function minSubArrLen (arr, s) { // 滑动窗口
   let len = arr.length
   let left = 0

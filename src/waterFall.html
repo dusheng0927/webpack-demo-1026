@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .title { margin: 0 auto; text-align: center; line-height: 50px;}
+    .container { position: relative; margin: 0 auto; }
+    .item { padding: 10px; width: 200px; position: absolute;}
+    .picture { padding: 10px; box-shadow: 0 0 5px #ccc;}
+    .picture img { width: 100%; }
+    .show img{
+      animation: myShow 2s;
+    }
+    @keyframes myShow {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h2 class="title">瀑布流</h2>
+  <div class="container" id="container">
+    <div class="item show">
+      <div class="picture">
+        <img src="https://img95.699pic.com/photo/50179/9400.jpg_wh300.jpg!/both/330x180" alt="">
+      </div>
+    </div>
+    <div class="item show">
+      <div class="picture">
+        <img src="https://img95.699pic.com/photo/50180/9003.jpg_wh300.jpg!/both/330x220" alt="">
+      </div>
+    </div>
+    <div class="item show">
+      <div class="picture">
+        <img src="	https://img95.699pic.com/photo/50179/9400.jpg_wh300.jpg!/both/330x260" alt="">
+      </div>
+    </div>
+    <div class="item show">
+      <div class="picture">
+        <img src="https://img95.699pic.com/photo/50180/9331.jpg_wh300.jpg!/both/330x300" alt="">
+      </div>
+    </div>
+    <div class="item show">
+      <div class="picture">
+        <img src="https://img95.699pic.com/photo/50179/9379.jpg_wh300.jpg!/both/330x400" alt="">
+      </div>
+    </div>
+    <div class="item show">
+      <div class="picture">
+        <img src="https://img95.699pic.com/photo/50180/3385.jpg_wh300.jpg!/both/330x180" alt="">
+      </div>
+    </div>
+    <div class="item show">
+      <div class="picture">
+        <img src="https://img95.699pic.com/photo/50180/9331.jpg_wh300.jpg!/both/330x330" alt="">
+      </div>
+    </div>
+    <div class="item show">
+      <div class="picture">
+        <img src="	https://img95.699pic.com/human/20211216/arn8tcj0lxtntp63.jpg!/both/285x195" alt="">
+      </div>
+    </div>
+    <div class="item show">
+      <div class="picture">
+        <img src="https://img95.699pic.com/human/20211216/lq4zfypawykaegxm.jpg!/both/285x195" alt="">
+      </div>
+    </div>
+    <div class="item show">
+      <div class="picture">
+        <img src="https://img95.699pic.com/photo/50180/9331.jpg_wh300.jpg!/both/330x300" alt="">
+      </div>
+    </div>
+    <div class="item show">
+      <div class="picture">
+        <img src="https://img95.699pic.com/photo/50179/9379.jpg_wh300.jpg!/both/330x400" alt="">
+      </div>
+    </div>
+    <div class="item show">
+      <div class="picture">
+        <img src="https://img95.699pic.com/photo/50180/3385.jpg_wh300.jpg!/both/330x180" alt="">
+      </div>
+    </div>
+    <div class="item show">
+      <div class="picture">
+        <img src="https://img95.699pic.com/photo/50180/9331.jpg_wh300.jpg!/both/330x330" alt="">
+      </div>
+    </div>
+    <div class="item show">
+      <div class="picture">
+        <img src="	https://img95.699pic.com/human/20211216/arn8tcj0lxtntp63.jpg!/both/285x195" alt="">
+      </div>
+    </div>
+    <div class="item show">
+      <div class="picture">
+        <img src="https://img95.699pic.com/human/20211216/lq4zfypawykaegxm.jpg!/both/285x195" alt="">
+      </div>
+    </div>
+    <div class="item show">
+      <div class="picture">
+        <img src="	https://img95.699pic.com/human/20211216/arn8tcj0lxtntp63.jpg!/both/285x195" alt="">
+      </div>
+    </div>
+    <div class="item show">
+      <div class="picture">
+        <img src="https://img95.699pic.com/human/20211216/lq4zfypawykaegxm.jpg!/both/285x195" alt="">
+      </div>
+    </div>
+    <div class="item show">
+      <div class="picture">
+        <img src="https://img95.699pic.com/human/20211216/arn8tcj0lxtntp63.jpg!/both/285x195" alt="">
+      </div>
+    </div>
+    <div class="item show">
+      <div class="picture">
+        <img src="https://img95.699pic.com/human/20211216/lq4zfypawykaegxm.jpg!/both/285x195" alt="">
+      </div>
+    </div>
+    <div class="item show">
+      <div class="picture">
+        <img src="	https://img95.699pic.com/human/20211216/arn8tcj0lxtntp63.jpg!/both/285x195" alt="">
+      </div>
+    </div>
+    <div class="item show">
+      <div class="picture">
+        <img src="https://img95.699pic.com/human/20211216/lq4zfypawykaegxm.jpg!/both/285x195" alt="">
+      </div>
+    </div>
+  </div>
+  <script>
+    window.onload = function () {
+      waterFall()
+    }
+    window.onresize = throttle(() => {
+      waterFall()
+    }, 200)
+    window.onscroll = throttle(function () {
+      // 当最后一个元素出现在可视区域时，加载更多
+      const container = document.getElementById('container')
+      const items = document.getElementsByClassName('item')
+      const clientWidth = document.documentElement.clientWidth
+      for (let i =0; i < items.length; i++ ) {
+        items[i].classList = 'item'
+      }
+      let lastItem = items[items.length -1]
+      if (lastItem.getBoundingClientRect().top < clientWidth) {
+        for (let j = 0; j < 10; j++) {
+          container.innerHTML += `
+            <div class="item show">
+              <div class="picture">
+                <img src="https://img95.699pic.com/human/20211216/lq4zfypawykaegxm.jpg!/both/285x195" alt="">
+              </div>
+            </div>
+            <div class="item show">
+              <div class="picture">
+                <img src="https://img95.699pic.com/photo/50179/9400.jpg_wh300.jpg!/both/330x180" alt="">
+              </div>
+            </div>
+          `
+        }
+        waterFall()
+      }
+    }, 200)
+
+
+    function waterFall () {
+      const container = document.getElementById('container')
+      const items = document.getElementsByClassName('item')
+      const clientWidth = document.documentElement.clientWidth
+      const columnNums = Math.floor(clientWidth / items[0].offsetWidth)
+      container.style.width = columnNums * items[0].offsetWidth + 'px'
+
+      const arrHeight = [] // 数组，存储每一列的高度
+      for (let i = 0; i < items.length; i++) {
+        if (i < columnNums) { // 第一行
+          arrHeight.push(items[i].offsetHeight)
+          items[i].style.top = '0px'
+          items[i].style.left = i * items[0].offsetWidth + 'px'
+        } else { // 非第一行
+          // 找出最小的高度，及其所在列
+          const curMinHeight = Math.min(...arrHeight)
+          const curColumn = arrHeight.indexOf(curMinHeight)
+
+          items[i].style.top = curMinHeight + 'px'
+          items[i].style.left = curColumn * items[0].offsetWidth + 'px'
+          arrHeight[curColumn] += items[i].offsetHeight
+        }
+      }
+    }
+    function throttle (cb, delay) {
+      let flag = true
+      return function () {
+        if (flag) {
+          flag = false
+          setTimeout(() => {
+            cb.apply(this, arguments)
+            flag = true
+          }, delay)
+        }
+      }
+    }
+  </script>
+</body>
+</html>

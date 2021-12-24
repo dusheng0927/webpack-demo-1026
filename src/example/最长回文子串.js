@@ -7,7 +7,7 @@ function longestHuiWenStr (s) {
   if (s.length < 2) return s
   let max = 1
   let start = 0
-  const dp = new Array(len)
+  const dp = new Array(len) // 生成二维数组
   for (let i = 0; i < s.length; i++ ) {
     dp[i] = new Array(len).fill(false)
     dp[i][i] = true

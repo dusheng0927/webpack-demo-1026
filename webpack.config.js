@@ -51,9 +51,14 @@ module.exports = {
   //   splitChunks: {
   //     cacheGroups: {
   //       vendor: {
-  //         test: /[\\/]node_modules[\\/]/,
+  //         test: /[\/]node_modules[\/]/,
   //         name: 'vendors', // 将第三方依赖打包进vendors
   //         chunks: 'all',
+  //         priority: -10,
+  //       },
+  //       default: {
+  //          minChunks: 2,
+  //          priority: -20,
   //       }
   //     }
   //   }
@@ -105,7 +110,7 @@ module.exports = {
                  'useBuiltIns': 'usage',
                  corejs: 3
                 }
-              ], // 使用polufill，兼容低版本浏览器（Array.map, Promise等）
+              ], // 使用polyfill，兼容低版本浏览器（Array.map, Promise等）
             ]
           }
         }
