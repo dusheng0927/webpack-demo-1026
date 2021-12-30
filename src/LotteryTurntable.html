@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>幸运大转盘</title>
+  <style>
+    * { padding: 0; margin: 0;}
+    .lottery { width: 486px; height: 502px;  margin: 50px auto; }
+    .turntable-wrap { background: #fadd95; width: 100%; height: 100%; border-radius: 10px; box-sizing: border-box;}
+    .turnable-box { height: 348px; padding: 24px; position: relative; }
+    .blocks { width: 100%; height: 100%; }
+    .item-container { border-radius: 8px; width: 100%; height: 100%; padding: 16px; box-sizing:border-box; background: #e37815; display: flex;
+      flex-direction: row; justify-content: space-between; flex-wrap: wrap; align-content: space-between; }
+    .turntable-item{ width: calc(33.3% - 5.33px); height: calc(33.3% - 5.33px);  display: flex; flex-direction: column; justify-content: center; align-items: center; background: #fdf3f3; border-radius: 4px;}
+    .item-image { width: 72px; height: 50px; display: flex; justify-content: center; align-items: center; }
+    .item-image img { max-width: 40px; max-height: 40px; height: 100%;  }
+    .item-title { font-size: 14px; font-weight: 400; color: #e37815; line-height: 22px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
+    .cost-box { display: flex; justify-content: space-between; align-items: center; color: #fff; padding: 10px 24px 32px;}
+    .btn {display: flex; justify-content: center;align-items: center; background: linear-gradient(174deg, #ffb46f 10%, #ef7d13); box-shadow: 0 8px 0px #e37815; border-radius: 16px; width: 204px; height: 64px; font-size: 20px; }
+    .btn img { width: 30px; height: 30px;}
+    .btn-title { margin-right: 20px; }
+    .btn-num{ margin-left: 5px;}
+  </style>
+</head>
+<body>
+  <div class="lottery">
+    <div class="turntable-wrap">
+      <div class="turnable-box">
+        <div class="blocks">
+          <div class="item-container">
+            <div class="turntable-item">
+              <div class="item-image"><img src="./images/0.jpg"></div>
+              <div class="item-title">随机矿石</div>
+            </div>
+            <div class="turntable-item">
+              <div class="item-image"><img src="./images/2.jpg"></div>
+              <div class="item-title">Bug</div>
+            </div>
+            <div class="turntable-item">
+              <div class="item-image"><img src="./images/1.jpg"></div>
+              <div class="item-title">虎虎生金春节礼盒</div>
+            </div>
+            <div class="turntable-item">
+              <div class="item-image"><img src="./images/3.jpg"></div>
+              <div class="item-title">随机限量徽章一枚</div>
+            </div>
+            <div class="turntable-item">
+              <div class="item-image"><img src="./images/4.jpg"></div>
+              <div class="item-title">虎虎生金保温杯</div>
+            </div>
+            <div class="turntable-item">
+              <div class="item-image"><img src="./images/6.jpg"></div>
+              <div class="item-title">掘金马克杯</div>
+            </div>
+            <div class="turntable-item">
+              <div class="item-image"><img src="./images/7.jpg"></div>
+              <div class="item-title">虎虎生金眼罩</div>
+            </div>
+            <div class="turntable-item">
+              <div class="item-image"><img src="./images/9.jpg"></div>
+              <div class="item-title">虎虎生金工卡套</div>
+            </div>
+            <div class="turntable-item">
+              <div class="item-image"><img src="./images/8.jpg"></div>
+              <div class="item-title">虎虎生金工卡套</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cost-box">
+        <div class="btn btn-left">
+          <span class="btn-title">单抽</span>
+          <img src="./images/0.jpg" alt="">
+          <span class="btn-num">200</span>
+        </div>
+        <div class="btn btn-right">
+          <span class="btn-title">十连抽</span>
+          <img src="./images/0.jpg" alt="">
+          <span class="btn-num">2000</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
