@@ -22,6 +22,7 @@
     .btn img { width: 30px; height: 30px;}
     .btn-title { margin-right: 20px; }
     .btn-num{ margin-left: 5px;}
+    .active { background: #fad98f; }
   </style>
 </head>
 <body>
@@ -30,7 +31,7 @@
       <div class="turnable-box">
         <div class="blocks">
           <div class="item-container">
-            <div class="turntable-item">
+            <div class="turntable-item active" >
               <div class="item-image"><img src="./images/0.jpg"></div>
               <div class="item-title">随机矿石</div>
             </div>
@@ -70,12 +71,12 @@
         </div>
       </div>
       <div class="cost-box">
-        <div class="btn btn-left">
+        <div class="btn btn-left" id="oneBegin">
           <span class="btn-title">单抽</span>
           <img src="./images/0.jpg" alt="">
           <span class="btn-num">200</span>
         </div>
-        <div class="btn btn-right">
+        <div class="btn btn-right" id="tenBegin">
           <span class="btn-title">十连抽</span>
           <img src="./images/0.jpg" alt="">
           <span class="btn-num">2000</span>
@@ -83,5 +84,42 @@
       </div>
     </div>
   </div>
+  <script>
+    var container = document.getElementsByClassName('item-container')
+    var turnItems = container[0].getElementsByClassName('turntable-item')
+    var oneBegin = document.getElementById('oneBegin')
+    var tenBegin = document.getElementById('tenBegin')
+    var timer = null
+
+    function start() { // 动画
+      var i = 0;
+      var num = Math.floor(Math.random() * turnItems.length) + 20
+      if (i < num) {
+        timer = setInterval(() => {
+          // 重置className
+          for (let j = 0; j < turnItems.length; j++) {
+            turnItems[j].className = 'turntable-item'
+          }
+          turnItems[i % turnItems.length].className = 'turntable-item active'
+          i++
+          if (i === num) {
+            clearInterval(timer)
+            if (i % turnItems.length === 0) {
+              alert('恭喜您中了9等奖')
+            } else {
+              alert('恭喜您中了'+ i % turnItems.length + '等奖')
+            }
+          }
+        }, 100)
+      }
+    }
+    oneBegin.onclick = function () {
+      start()
+    }
+    tenBegin.onclick = function () {
+      clearInterval(timer)
+    }
+
+  </script>
 </body>
 </html>
