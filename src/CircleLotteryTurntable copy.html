@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>幸运大转盘</title>
+  <style>
+    * { padding: 0; margin: 0;}
+    .turntable-wrap { margin: 100px auto; position: relative; width: 340px; height: 340px; border: 7px solid #b2a98d; border-radius: 50%; box-shadow: 0 0 20px #b2a98d; overflow:hidden; }
+    .light { position: absolute; top:0; left: 0; width: 100%; height:100%; background: #e0ddd1; }
+    .light span {
+      position: absolute; top: 0; left:0; right:0; width: 10px; height: 100%; margin: 0 auto; border-radius: 50%;
+      transform-origin: center center;
+    }
+    .light span::before {
+      content: ''; width: 10px; height: 10px; border-radius: 50%;  position: absolute; top: 5px; left: 0; right: 0;
+    }
+    .light span:nth-of-type(odd)::before {
+      background: #d7a945;
+      animation: white-to-yellow 1s linear reverse infinite;
+    }
+    .light span:nth-of-type(even)::before {
+      background: #fff;
+      animation: white-to-yellow 1s linear infinite;
+    }
+    @keyframes white-to-yellow {
+      0% {
+        background: #fff;
+      }
+      100% {
+        background: #d7a945;
+      }
+    }
+    .turntable { width: 300px; height: 300px; border-radius: 50%; background: #fff; position:absolute; margin: 20px; }
+    .turntable .bg {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%; border: 1px solid #dfd8be; transform: rotate(90deg);
+    }
+    .bg li { list-style: none; position:absolute; top: 0; left:0; right:0; width: 1px; height: 100%; background:#dfd8be; transform-origin: center center; margin: 0 auto; }
+    .gift { position: relative; width: 100%; height: 100%; transform:rotate(45deg); }
+    .gift li { list-style: none; position: absolute; width: 45%; height: 45%; top: 5%; left: 5%; transform-origin: right bottom; }
+    .gift li span {
+      position: absolute; top: 0; left: 0; right:0; bottom: 0; display: block; width: 50px; height: 70px; margin: auto; text-align:center;  transform: rotate(-45deg); line-height: 80px; border-radius:5px; background: #f23c3c; color: #fff; font-size: 24px;
+    }
+    li.no-gift span{ background: #fff; line-height: 70px; color: #bfa74f; font-size: 12px; }
+    li:not(.no-gift) span::before {
+      content: ''; position: absolute; top: 15px; left:0; width: 50px; height: 1px; background:#fff;
+    }
+    .pointer {
+      position: absolute; top: 50%; left: 50%; width: 40px; height: 40px; transform:translate(-50%,-50%); border: 5px solid #fff; box-shadow: 0 0 0 5px #b9a046;border-radius: 50%; font-size: 14px; color:#b9a046; font-weight: 700;cursor: pointer;background: #fff;text-align: center;
+    }
+    .pointer::before {
+      content: ''; border-width: 0 10px 25px 10px; border-style: solid; border-color: transparent transparent #b9a046 transparent; width: 0; height: 0;position:absolute; top: -33px;left:0; right: 0; margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="turntable-wrap">
+    <div class="light" id="turntale_light">
+      <span style="transform: rotate(0deg)"></span>
+      <span style="transform: rotate(30deg)"></span>
+      <span style="transform: rotate(60deg)"></span>
+      <span style="transform: rotate(90deg)"></span>
+      <span style="transform: rotate(120deg)"></span>
+      <span style="transform: rotate(150deg)"></span>
+      <span style="transform: rotate(180deg)"></span>
+      <span style="transform: rotate(210deg)"></span>
+      <span style="transform: rotate(240deg)"></span>
+      <span style="transform: rotate(270deg)"></span>
+      <span style="transform: rotate(300deg)"></span>
+      <span style="transform: rotate(330deg)"></span>
+    </div>
+    <div class="turntable" id="turntable">
+      <ul class="bg" id="turntable_bg">
+        <li style="transform:rotate(0deg)"></li>
+        <li style="transform:rotate(60deg)"></li>
+        <li style="transform:rotate(120deg)"></li>
+        <li style="transform:rotate(180deg)"></li>
+        <li style="transform:rotate(240deg)"></li>
+        <li style="transform:rotate(300deg)"></li>
+      </ul>
+      <ul class="gift" id="turntable_gift">
+        <li style="transform:rotate(0deg)"><span>￥</span></li>
+        <li class="no-gift" style="transform:rotate(60deg)"><span>谢谢参与</span></li>
+        <li style="transform:rotate(120deg)"><span>￥</span></li>
+        <li class="no-gift" style="transform:rotate(180deg)"><span>谢谢参与</span></li>
+        <li style="transform:rotate(240deg)"><span>￥</span></li>
+        <li class="no-gift" style="transform:rotate(300deg)"><span>谢谢参与</span></li>
+      </ul>
+    </div>
+    <div class="pointer" id="turntable_pointer">点击抽奖</div>
+  </div>
+  <script>
+    // 参考文档：https://github.com/ESnail/turntable/blob/master/css-js-turntable/index.html
+    var btn = document.getElementById('turntable_pointer')
+    var isGoing = false
+    btn.onclick = function () {
+      if (isGoing) return 
+      isGoing = true
+      // 随机中奖结果
+
+    }
+  </script>
+</body>
+</html>
